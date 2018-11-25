@@ -73,6 +73,12 @@ function changeQuestion(questionIndex) {
   // if no question is available (if all questions are answered) use following
   // 'Your score is 6. Wanna try again?'
   // of course 6 should be replaced by the correct number
+  if(questionIndex >= scrambledQuestions.length){
+    htmlQuestion.textContent = 'Your score is'+ htmltotal.textContent +'.Wanna try again?';
+  }
+  else {
+    htmlQuestion.textContent = scrambleQuestions[questionIndex].question;
+  }
 }
 
 function init() {

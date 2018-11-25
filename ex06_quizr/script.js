@@ -113,6 +113,25 @@ function answeredIncorrectly(questionIndex) {
 
 function answered(event) {
   // play the solution and make it work!!!
+  if (event.target.matches('.answer')){
+    const questionIndex = parseInt(htmlQuestion.dataset.index);
+    const givenAnswer = event.target.textContent;
+    if(questionIndex >=scrambledQuestions.lenght){
+      if (givenAnswer === 'True'){
+        init();
+      }
+    } else {
+      const {correctAnswer} = scrambledQuestions[questionIndex];
+      if (givenAnswer === correctAnswer){
+        answeredCorrectly(questionIndex);
+      }
+      else {
+        answeredIncorrectly(questionIndex);
+      }
+      changeQuestionIndex(questionIndex +1);``
+      changeQuestion(questionIndex + 1);
+    }
+  }
 }
 
 htmlAnswerContainer.addEventListener('click', answered);

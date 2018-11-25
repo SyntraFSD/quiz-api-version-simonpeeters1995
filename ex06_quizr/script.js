@@ -60,12 +60,12 @@ function initResults() {
 
 function changeTotal(total) {
   // change htmlTotal
-  htmlTotal.textContent=total;
+  htmlTotal.textContent = total;
 }
 
 function changeQuestionIndex(questionIndex) {
   // change data-index in htmlQuestion
-  
+  htmlQuestion.dataset.index = questionIndex;
 }
 
 function changeQuestion(questionIndex) {

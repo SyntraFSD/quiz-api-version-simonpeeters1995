@@ -52,14 +52,20 @@ function initResults() {
   // select all elements with class .result
   // remove classes is-success and is-danger
   // add class is-dark
+  document.querySelectorAll('.result').forEach(function(result){
+    result.classList.remove('is-succes','is-large');
+    result.classList.add('is-dark');
+  })
 }
 
 function changeTotal(total) {
   // change htmlTotal
+  htmlTotal.textContent=total;
 }
 
 function changeQuestionIndex(questionIndex) {
   // change data-index in htmlQuestion
+  
 }
 
 function changeQuestion(questionIndex) {

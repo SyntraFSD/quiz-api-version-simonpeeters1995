@@ -30,11 +30,11 @@ const questions = [{
   correctAnswer: 'False',
 }];
 // #answer-container
-const htmlAnswerContainer;
+const htmlAnswerContainer = document.querySelector('#answer-container');
 // #question
-const htmlQuestion;
+const htmlQuestion = document.querySelector('#question');
 // #total-correct
-const htmlTotal;
+const htmlTotal = document.querySelector('#total-correct');
 // save scrambled array here
 let scrambledQuestions;
 
@@ -43,6 +43,9 @@ let scrambledQuestions;
  */
 function scrambleQuestions() {
   // return a copy of questions with the items in a random order
+  return questions.sort(function(){
+    return Math.random()-0.5;
+  });
 }
 
 function initResults() {

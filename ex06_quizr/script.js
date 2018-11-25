@@ -96,12 +96,19 @@ function answeredCorrectly(questionIndex) {
   // remove class is-dark
   // add class is-success
   // change total
+  const currentResultElement = document.querySelector('.result:nthChild(' + (questionIndex+1) +')');
+  currentResultElement.classList.remove ('is-dark');
+  currentResultElement.classList.add ('is-success');
+  changeTotal(parseInt(htmlTotal.textContent)+1);
 }
 
 function answeredIncorrectly(questionIndex) {
   // update the correct .result element use questionIndex
   // remove class is-dark
   // add class is-danger
+  const currentResultElement = document.querySelector('.result:nthChild('+ (questionIndex + 1)+')');
+  currentResultElement.classList.remove('is-dark');
+  currentResultElement.classList.remove('is-danger');
 }
 
 function answered(event) {

@@ -53,7 +53,7 @@ function initResults() {
   // remove classes is-success and is-danger
   // add class is-dark
   document.querySelectorAll('.result').forEach(function(result){
-    result.classList.remove('is-succes','is-large');
+    result.classList.remove('is-success','is-danger');
     result.classList.add('is-dark');
   })
 }
@@ -77,7 +77,7 @@ function changeQuestion(questionIndex) {
     htmlQuestion.textContent = 'Your score is'+ htmltotal.textContent +'.Wanna try again?';
   }
   else {
-    htmlQuestion.textContent = scrambleQuestions[questionIndex].question;
+    htmlQuestion.textContent = scrambledQuestions[questionIndex].question;
   }
 }
 
@@ -96,9 +96,9 @@ function answeredCorrectly(questionIndex) {
   // remove class is-dark
   // add class is-success
   // change total
-  const currentResultElement = document.querySelector('.result:nthChild(' + (questionIndex+1) +')');
-  currentResultElement.classList.remove ('is-dark');
-  currentResultElement.classList.add ('is-success');
+  const currentResultElement = document.querySelector('.result:nth-Child(' + (questionIndex+1) +')');
+  currentResultElement.classList.remove('is-dark');
+  currentResultElement.classList.add('is-success');
   changeTotal(parseInt(htmlTotal.textContent)+1);
 }
 
@@ -106,7 +106,7 @@ function answeredIncorrectly(questionIndex) {
   // update the correct .result element use questionIndex
   // remove class is-dark
   // add class is-danger
-  const currentResultElement = document.querySelector('.result:nthChild('+ (questionIndex + 1)+')');
+  const currentResultElement = document.querySelector('.result:nth-Child('+ (questionIndex + 1)+')');
   currentResultElement.classList.remove('is-dark');
   currentResultElement.classList.remove('is-danger');
 }
@@ -116,7 +116,7 @@ function answered(event) {
   if (event.target.matches('.answer')){
     const questionIndex = parseInt(htmlQuestion.dataset.index);
     const givenAnswer = event.target.textContent;
-    if(questionIndex >=scrambledQuestions.lenght){
+    if(questionIndex >= scrambledQuestions.length){
       if (givenAnswer === 'True'){
         init();
       }
@@ -128,7 +128,7 @@ function answered(event) {
       else {
         answeredIncorrectly(questionIndex);
       }
-      changeQuestionIndex(questionIndex +1);``
+      changeQuestionIndex(questionIndex +1);
       changeQuestion(questionIndex + 1);
     }
   }
